@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">약 알리미</string>
+    <string name="intro_text">약 먹었어요?</string>
+</resources>

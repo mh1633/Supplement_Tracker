@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">Supplement_Tracker</string>
-    <string name="initial_text">pill &amp; supplement Tracker</string>
+    <string name="app_name">Supplement Tracker</string>
+    <string name="intro_text">"Do you take Pill ? "</string>
 </resources>
