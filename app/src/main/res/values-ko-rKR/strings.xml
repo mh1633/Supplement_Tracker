@@ -2,4 +2,21 @@
 <resources>
     <string name="app_name">약 알리미</string>
     <string name="intro_text">약 먹었어요?</string>
+    <string name="setting_category_option">옵션 설정</string>
+    <string name="option_alarm_ringtone">소리 켜기</string>
+    <string name="option_alarm_when">알람 시간</string>
+    <string name="option_alarm_vibration">진동 켜기</string>
+    <string name="option_language">한국어</string>
+    <string name="option_language_select">언어 설정</string>
+    <string name="option_alarm_ringtone_summary">알람 소리 켜기 / 끄기</string>
+    <string name="option_alarm_vibration_summary">알람 진동 켜기 / 끄기</string>
+    <string name="option_language_select_summary">언어 선택</string>
+    <string name="option_timer">시간 설정</string>
+    <string name="option_timer_summary">알람 시간 설정</string>
+    <string name="setting_category_app">앱 설정</string>
+    <string name="option_Alarm_enable">알람 켜기</string>
+    <string name="category_alarm_setting">알람 설정</string>
+    <string name="Menu_1">내 약 목록 관리</string>
+    <string name="Menu_2">리포트</string>
+    <string name="Menu_3">설정</string>
 </resources>

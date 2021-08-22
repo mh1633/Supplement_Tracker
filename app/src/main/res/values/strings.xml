@@ -1,4 +1,21 @@
 <resources>
     <string name="app_name">Supplement Tracker</string>
     <string name="intro_text">"Do you take Pill ? "</string>
+    <string name="setting_category_option">Option Setting</string>
+    <string name="option_alarm_ringtone">Ringtone</string>
+    <string name="option_alarm_when">Time</string>
+    <string name="option_alarm_vibration">Vibration</string>
+    <string name="option_language">English</string>
+    <string name="option_language_select">Language</string>
+    <string name="option_alarm_ringtone_summary">alarm sound On / Off</string>
+    <string name="option_alarm_vibration_summary">alarm vibration On / Off</string>
+    <string name="option_language_select_summary">select Language</string>
+    <string name="option_timer">Time</string>
+    <string name="option_timer_summary">choose an alarm time</string>
+    <string name="setting_category_app">App Setting</string>
+    <string name="option_Alarm_enable">Alarm Enable</string>
+    <string name="category_alarm_setting">Alarm Setting</string>
+    <string name="Menu_1">My Pill List</string>
+    <string name="Menu_2">Report</string>
+    <string name="Menu_3">Setting</string>
 </resources>
