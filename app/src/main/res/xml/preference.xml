@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen
-    app:fragment="com.example.supplement_tracker."
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:iconSpaceReserved="false">
+    android:defaultValue="true"
+    android:iconSpaceReserved="false"
+    app:fragment="com.example.supplement_tracker.">
 
     <PreferenceCategory
         android:title="@string/setting_category_option"
@@ -18,26 +18,26 @@
             <SwitchPreference
                 android:layout_gravity="center"
                 android:defaultValue="true"
+                android:dependency="switch_alarm_enable"
                 android:key="switch_alarm_sound"
                 android:summary="@string/option_alarm_ringtone_summary"
                 android:title="@string/option_alarm_ringtone"
-                app:iconSpaceReserved="true"
-                android:dependency="switch_alarm_enable"/>
+                app:iconSpaceReserved="true" />
             <SwitchPreference
                 android:layout_gravity="center"
                 android:defaultValue="true"
+                android:dependency="switch_alarm_enable"
                 android:key="switch_alarm_vibration"
                 android:summary="@string/option_alarm_vibration_summary"
                 android:title="@string/option_alarm_vibration"
-                app:iconSpaceReserved="true"
-                android:dependency="switch_alarm_enable"/>
+                app:iconSpaceReserved="true" />
             <ListPreference
+                android:dependency="switch_alarm_enable"
                 android:entries="@array/option_time_list"
                 android:entryValues="@array/option_time_value"
                 android:key="option_timer"
-                android:summary="@string/option_timer_summary"
                 android:title="@string/option_timer"
-                android:dependency="switch_alarm_enable"/>
+                app:useSimpleSummaryProvider="true" />
         </PreferenceCategory>
     </PreferenceCategory>
     <PreferenceCategory
@@ -45,12 +45,13 @@
         android:title="@string/setting_category_app"
         app:iconSpaceReserved="false">
         <ListPreference
+            android:defaultValue="first"
             android:entries="@array/option_language_list"
             android:entryValues="@array/option_language_value"
             android:key="option_language"
-            android:summary="@string/option_language_select_summary"
             android:title="@string/option_language_select"
-            app:iconSpaceReserved="false" />
+            app:iconSpaceReserved="false"
+            app:useSimpleSummaryProvider="true" />
 
     </PreferenceCategory>
 
