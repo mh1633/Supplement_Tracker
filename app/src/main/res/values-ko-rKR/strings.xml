@@ -18,4 +18,8 @@
     <string name="Menu_1">내 약 목록 관리</string>
     <string name="Menu_2">리포트</string>
     <string name="Menu_3">설정</string>
+    <string name="call_camera">카메라 켜기</string>
+    <string name="search_img">이미지 검색</string>
+    <string name="Toast_start_camera">카메라 실행</string>
+    <string name="Toast_App_finish">종료하려면 한 번 더 눌러주세요</string>
 </resources>

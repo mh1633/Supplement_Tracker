@@ -17,10 +17,8 @@
     <string name="Menu_1">My Pill List</string>
     <string name="Menu_2">Report</string>
     <string name="Menu_3">Setting</string>
-    <!-- Preference Titles -->
-
-    <!-- Messages Preferences -->
-
-    <!-- Sync Preferences -->
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="call_camera">Camera</string>
+    <string name="search_img">Search</string>
+    <string name="Toast_start_camera">Run Camera App</string>
+    <string name="Toast_App_finish">Please again to exit</string>
 </resources>

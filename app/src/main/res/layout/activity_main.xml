@@ -6,7 +6,25 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/img_Serach_Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        app:backgroundTint="@android:color/holo_blue_bright"
+        app:fabSize="mini"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.93"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.97"
+        app:maxImageSize="25dp"
+        app:srcCompat="@drawable/ic_image_search"
+        app:tint="@color/white" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -18,23 +36,7 @@
             android:scaleType="centerCrop"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/main_bg"
-            tools:layout_editor_absoluteX="-177dp" />
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/img_Serach_Button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_marginBottom="8dp"
-            android:clickable="true"
-            app:backgroundTint="@android:color/holo_blue_bright"
-            app:fabSize="mini"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:maxImageSize="25dp"
-            app:srcCompat="@drawable/ic_image_search"
-            app:tint="@color/white" />
+            tools:layout_editor_absoluteX="-62dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

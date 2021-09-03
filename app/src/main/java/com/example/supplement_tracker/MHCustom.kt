@@ -1,13 +1,14 @@
 package com.example.supplement_tracker
 
 import android.content.Context
+import android.content.Intent
+import android.util.Log
 import androidx.preference.PreferenceManager
 
 /* 자주쓰는 함수 재정의 */
 class MHCustom{
 
     companion object{
-
         /* 설정정보 가져오기 */
         fun <T> Get_Pref(key: String, default: T, contex: Context): Any {
             val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(contex)
@@ -32,5 +33,6 @@ class MHCustom{
             }
             edit.apply()
         }
+
     }
 }

@@ -16,7 +16,7 @@ class IntroActivity : AppCompatActivity() {
             intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
             startActivity(intent)
             finish()
-        },100)
+        },10)
     }
 
     override fun onBackPressed() {
