@@ -6,8 +6,11 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.provider.Settings
+import android.util.Log
 import android.view.KeyEvent
 import android.view.View
 import android.widget.Toast
@@ -19,7 +22,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
-    val binding by lazy {ActivityMainBinding.inflate(layoutInflater)}
+    val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
     var initTime = 0L
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,6 +45,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             tabLayout.text = tab_Title[position]
         }.attach()
 
+
         /* 기능 구현 */
         with(binding) {
             imgSerachButton.setOnClickListener(this@MainActivity)
@@ -57,75 +61,78 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     /* 권한 체크 */
     fun checkPermission() {
         val cameraPermission = ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
-        val storagePermission = ContextCompat.checkSelfPermission(this,Manifest.permission.READ_EXTERNAL_STORAGE)
-
-        if(cameraPermission == PackageManager.PERMISSION_GRANTED && storagePermission == PackageManager.PERMISSION_GRANTED){
-            val intent = Intent(applicationContext, SearchIMG::class.java)
+        val storagePermission = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+        if (cameraPermission == PackageManager.PERMISSION_GRANTED && storagePermission == PackageManager.PERMISSION_GRANTED) {
+            val intent = Intent(this, SearchIMG::class.java)
             startActivity(intent)
-        }
-        else requestPermission(this)
+        } else requestPermission(this)
     }
 
     /* 권한 요청 */
     fun requestPermission(activity: Activity) {
         val arrayPermission = arrayOf(
             Manifest.permission.CAMERA,
-            Manifest.permission.READ_EXTERNAL_STORAGE)
-        ActivityCompat.requestPermissions(activity, arrayPermission,99)
+            Manifest.permission.WRITE_EXTERNAL_STORAGE
+        )
+        ActivityCompat.requestPermissions(activity, arrayPermission, 99)
     }
 
     /* 권한체크 응답 */
     @SuppressLint("MissingSuperCall")
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
-        var permission_enable = false
+        var permission_enable = true
         when (requestCode) {
             99 -> {
                 for (i in grantResults) {
-                    permission_enable = i == PackageManager.PERMISSION_GRANTED
+                    if (i != PackageManager.PERMISSION_GRANTED) {
+                        permission_enable = false
+                        break
+                    }
                 }
-                if (permission_enable == true) {
-                    val intent = Intent(applicationContext, SearchIMG::class.java)
-                    startActivity(intent)
-                }
-                else {
-                    Toast.makeText(this,"Need Camera Permission",Toast.LENGTH_LONG).show()
-                }
+            if (permission_enable == true) {
+                val intent = Intent(applicationContext, SearchIMG::class.java)
+                startActivity(intent)
+            } else {
+                Toast.makeText(this, "Need Camera and Storage Permission", Toast.LENGTH_LONG).show()
+                val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).
+                setData(Uri.parse("package:"+BuildConfig.APPLICATION_ID))
+                startActivity(intent)
             }
         }
     }
-    /* 종료시 한번 더 눌러주세요 팝업 */
-    override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
-        if(keyCode == KeyEvent.KEYCODE_BACK){
-            if(System.currentTimeMillis() - initTime > 3000){
-                Toast.makeText(this,R.string.Toast_App_finish,Toast.LENGTH_LONG).show()
-                initTime = System.currentTimeMillis()
-                return true
-            }
+}
+
+/* 종료시 한번 더 눌러주세요 팝업 */
+override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
+    if (keyCode == KeyEvent.KEYCODE_BACK) {
+        if (System.currentTimeMillis() - initTime > 3000) {
+            Toast.makeText(this, R.string.Toast_App_finish, Toast.LENGTH_LONG).show()
+            initTime = System.currentTimeMillis()
+            return true
         }
-        return super.onKeyDown(keyCode, event)
     }
+    return super.onKeyDown(keyCode, event)
+}
 
-    /* 다국어 설정 처리 */
-    override fun attachBaseContext(newBase: Context) {
+/* 다국어 설정 처리 */
+override fun attachBaseContext(newBase: Context) {
 
-        var language = MHCustom.Get_Pref(setting_Fragment.language_pref_key, "first", newBase)
-        var context = newBase
-        val config = context.resources.configuration
+    var language = Get_Pref(setting_Fragment.language_pref_key, "first", newBase)
+    var context = newBase
+    val config = context.resources.configuration
 
-        val sysLocal = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            config.locales[0]
-        } else {
-            config.locale
-        }
-        if (language == "first") {
-            language = sysLocal.language
-            MHCustom.Put_Pref(setting_Fragment.language_pref_key, sysLocal.language, context)
-        }
-        context = setting_Fragment().chagnelang(newBase, language as String)
-        super.attachBaseContext(context)
-
+    val sysLocal = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+        config.locales[0]
+    } else {
+        config.locale
     }
-
+    if (language == "first") {
+        language = sysLocal.language
+        Put_Pref(setting_Fragment.language_pref_key, sysLocal.language, context)
+    }
+    context = setting_Fragment().chagnelang(newBase, language as String)
+    super.attachBaseContext(context)
+}
 
 }
 

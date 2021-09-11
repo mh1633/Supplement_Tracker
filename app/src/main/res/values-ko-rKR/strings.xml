@@ -22,4 +22,5 @@
     <string name="search_img">이미지 검색</string>
     <string name="Toast_start_camera">카메라 실행</string>
     <string name="Toast_App_finish">종료하려면 한 번 더 눌러주세요</string>
+    <string name="floting_btn_text">이미지 검색</string>
 </resources>
