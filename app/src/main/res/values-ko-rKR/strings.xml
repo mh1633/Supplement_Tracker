@@ -23,4 +23,9 @@
     <string name="Toast_start_camera">카메라 실행</string>
     <string name="Toast_App_finish">종료하려면 한 번 더 눌러주세요</string>
     <string name="floting_btn_text">이미지 검색</string>
+    <string name="last_take_time">"최근 복용 시간 : "</string>
+    <string name="Item_Alarm">알람</string>
+    <string name="Name">약 이름</string>
+    <string name="Alarm">알람</string>
+    <string name="Description">설명</string>
 </resources>

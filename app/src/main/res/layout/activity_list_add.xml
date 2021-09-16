@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".list_add">
+
+    <ImageView
+        android:id="@+id/Item_Image_View"
+        android:layout_width="361dp"
+        android:layout_height="259dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toTopOf="@+id/Item_Name_Text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.25"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <EditText
+        android:id="@+id/Item_Name_Text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:ems="10"
+        android:hint="@string/Name"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/Item_Des_Text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        android:hint="@string/Description"
+        android:maxLines="2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/Item_Name_Text"
+        app:layout_constraintTop_toBottomOf="@+id/Item_Name_Text" />
+
+    <Spinner
+        android:id="@+id/Item_cycle_spinner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="60dp"
+        android:layout_marginRight="60dp"
+        app:layout_constraintBottom_toTopOf="@+id/Cancel_Btn"
+        app:layout_constraintEnd_toStartOf="@+id/Item_Times_spinner"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/Item_Des_Text"
+        app:layout_constraintTop_toBottomOf="@+id/Item_Des_Text" />
+
+    <Spinner
+        android:id="@+id/Item_Times_spinner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/Item_cycle_spinner"
+        app:layout_constraintEnd_toEndOf="@+id/Item_Des_Text"
+        app:layout_constraintStart_toEndOf="@+id/Item_cycle_spinner"
+        app:layout_constraintTop_toTopOf="@+id/Item_cycle_spinner"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageButton
+        android:id="@+id/Cancel_Btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:background="@android:color/transparent"
+        android:scaleX="1.2"
+        android:scaleY="1.2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/Add_Btn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Item_cycle_spinner"
+        app:srcCompat="@drawable/cancel_btn" />
+
+    <ImageButton
+        android:id="@+id/Add_Btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:scaleX="1.5"
+        android:scaleY="1.5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/Cancel_Btn"
+        app:layout_constraintTop_toTopOf="@+id/Cancel_Btn"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/check_btn" />
+
+    <Switch
+        android:id="@+id/Alarm_switch"
+        android:layout_width="99dp"
+        android:layout_height="32dp"
+        android:text="@string/Alarm"
+        app:layout_constraintBottom_toBottomOf="@+id/Item_Name_Text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/Item_Name_Text"
+        app:layout_constraintTop_toTopOf="@+id/Item_Name_Text"
+        tools:checked="false" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

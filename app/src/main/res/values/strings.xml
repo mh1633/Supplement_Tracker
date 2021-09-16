@@ -22,4 +22,9 @@
     <string name="Toast_start_camera">Run Camera App</string>
     <string name="Toast_App_finish">Please again to exit</string>
     <string name="floting_btn_text">+ Image Search</string>
+    <string name="last_take_time">"last take time : "</string>
+    <string name="Item_Alarm">Alarm</string>
+    <string name="Name">Medicine</string>
+    <string name="Alarm">Alarm</string>
+    <string name="Description">Description</string>
 </resources>

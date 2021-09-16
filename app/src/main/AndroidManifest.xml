@@ -18,9 +18,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Supplement_Tracker">
+        <activity android:name=".list_add"></activity>
         <activity
             android:name=".search_webview"
-            android:theme="@style/Theme.Supplement_Tracker.NoActionBar"></activity>
+            android:theme="@style/Theme.Supplement_Tracker.NoActionBar" />
         <activity android:name=".SearchIMG" />
         <activity android:name=".IntroActivity">
             <intent-filter>
